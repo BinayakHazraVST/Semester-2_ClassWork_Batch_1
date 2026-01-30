@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+    <header class="search-details-box">
+
+        <div class="search-bar">
+
+            <label>
+                <input type="text" placeholder="Enter Location..." id="search-input" />
+            </label>
+
+            <button id="search-btn-input">Search</button>
+
+        </div>
+
+    </header>
+
+    <main>
+        <div class="weather-details">
+            <div class="temp">12.5℃</div>
+
+            <div class="loc-day">
+                <div class="location">
+                    <h1>Delhi</h1>
+                </div>
+                <div class="time-stamp">
+                    <span class="time">9.15</span>
+                    <span class="day">Friday</span>
+                    <span class="date">2026-01-30</span>
+                </div>
+            </div>
+
+            <div class="climate">
+                <div class="climate-icon">
+                    <img src="//cdn.weatherapi.com/weather/64x64/day/113.png" alt="waether-icon" />
+                </div>
+                <div class="climate-details">
+                    Sunny
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <script>
+        let input_bar = document.querySelector("#search-input");
+        let search_btn = document.querySelector("#search-btn-input");
+
+        search_btn.addEventListener("click", () => {
+            let inputText = input_bar.value.trim();
+
+            if (inputText === "") {
+                alert("Give a valid location");
+                return;
+            }
+
+            console.log(inputText);
+
+            const api_data= ()=>{async function fn() {
+                console.log("Inside function");
+                const response = await fetch(
+                    "https://jsonplahttp://api.weatherapi.com/v1/current.json?key=ec00dcdc4a7f4b59a1443243262301&q=Pune&aqi=noceholder.typicode.com/todos/1",
+                );
+                console.log(response);
+                const jsonData = await response.json();
+                console.log("Bottom of fn")
+
+                }
+            }
+            
+            api_data();
+
+
+            input_bar.value = "";
+        })
+    </script>
+</body>
+
+</html>

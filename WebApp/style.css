@@ -1,0 +1,50 @@
+
+.search-details-box {
+  display: flex;
+  background-color: slategray;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+}
+
+.search-bar {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+#search-input {
+  font-size: 1rem;
+  padding: 2px;
+}
+
+#search-btn-input {
+  padding: 5px;
+  font-size: 1rem;
+  border: white solid 1px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+main {
+  height: 90vh;
+  background-color: darkslategrey;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.weather-details {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.climate {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
