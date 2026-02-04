@@ -14,6 +14,7 @@ grandparentBox.addEventListener("click", () => {
     // ansDetails.classList.add("ans"+count);
     ansDetails.classList.add("ans-details");
     displayAns.appendChild(ansDetails);
+    // event.stopPropagation();
 }, true);
 
 grandparentBox.addEventListener("click", () => {
@@ -23,6 +24,7 @@ grandparentBox.addEventListener("click", () => {
     // ansDetails.classList.add("ans"+count);
     ansDetails.classList.add("ans-details");
     displayAns.appendChild(ansDetails);
+    // event.stopPropagation();
 }, false);
 
 parentBox.addEventListener("click", () => {
@@ -32,18 +34,34 @@ parentBox.addEventListener("click", () => {
     // ansDetails.classList.add("ans"+count);
     ansDetails.classList.add("ans-details");
     displayAns.appendChild(ansDetails);
+    // event.stopPropagation();
 }, true);
 
-parentBox.addEventListener("click", () => {
+parentBox.addEventListener("click", (event) => {
     //  count++;
     let ansDetails = document.createElement("div");
     ansDetails.textContent = "Parent - Bubbling";
     // ansDetails.classList.add("ans"+count);
     ansDetails.classList.add("ans-details");
     displayAns.appendChild(ansDetails);
+    // event.stopPropagation();
 }, false);
+
+clickBtn.addEventListener("click", (event)=>{
+    let ansDetails = document.createElement("div");
+    ansDetails.textContent="Button -> Captured";
+    displayAns.appendChild(ansDetails);
+    // event.stopImmediatePropagation();
+},false);
+
+clickBtn.addEventListener("click", (event)=>{
+    let ansDetails = document.createElement("div");
+    ansDetails.textContent="Button -> Bubbling";
+    displayAns.appendChild(ansDetails);
+    // event.stopImmediatePropagation();
+},true);
 
 clearTag.addEventListener("click", () => {
     displayAns.innerHTML = "";
     // count--;
-})
+});
