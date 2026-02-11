@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random-Box Game</title>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        body{
+            height:100vh;
+            width:100vw;
+            padding:0;
+            margin:0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #rootEle{
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height:100vh;
+            width:100vw;
+            background-color:rgb(159, 245, 240);
+
+        }
+        .container{
+            height:500px;
+            width:300px;
+            position: relative;
+            border:2px solid black;
+            background-color: white;
+            padding:5px;
+        }
+
+        .score{
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .main-box{
+            position:relative;
+            background-color: red;
+            height:50px;
+            width:50px;
+            border:1px solid red;
+            left:100px;
+            top:100px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="rootEle">
+
+    </div>
+
+    <script type="text/babel">
+        const rootEle=document.querySelector("#rootEle");
+        let scoreBox
+        let score=0;
+
+        const handleClick= (event)=>{
+            score++;
+            console.log(score);
+            let box=event.target;
+            const leftMargin=Math.floor(Math.random()*250)+"px";
+            const topMargin=Math.floor(Math.random()*450)+"px";
+
+            box.style.left=leftMargin;
+            box.style.top=topMargin;
+
+            scoreBox.textContent="Score: "+score;
+
+        }
+
+        function ContainerBox(){
+            return <div class="container"><ScoreBox/><GameBox/></div>
+        }
+
+        function ScoreBox(){
+            return <div class="score">Score: 0</div>
+        }
+
+        function GameBox(){
+            return <div class="main-box" onClick={handleClick}></div>
+        }
+
+        
+
+        ReactDOM.render(<ContainerBox/>, rootEle);
+       scoreBox=document.querySelector(".score");
+        
+    </script>
+</body>
+
+</html>
