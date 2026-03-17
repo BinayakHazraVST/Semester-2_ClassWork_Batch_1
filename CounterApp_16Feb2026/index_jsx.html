@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CounterApp-JSX</title>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        #count-box {
+            height: 300px;
+            width: 350px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #counter-app {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px pink;
+            padding: 10px;
+        }
+
+        #count-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: blue;
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+
+        button {
+            border: 2px solid black;
+            height: 25px;
+            width: 50px;
+            background-color: white;
+            font-size: 1rem;
+            padding: 3px;
+            font-weight: bold;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        #reset {
+            width: 100px;
+            background-color: yellow;
+        }
+
+        #minus {
+            background-color: red;
+            border-radius: 45%;
+        }
+
+        #plus {
+            background-color: green;
+        }
+
+        .btn-container {
+
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script type="text/babel">
+        let bodyEle = document.querySelector("body");
+
+
+        function GameBox() {
+            const [count, setCount] = React.useState(0);
+            const handleMinus = () => {
+                setCount(count - 1)
+            }
+
+            const handleReset = () => {
+                setCount(0)
+            }
+
+            const handlePlus = () => {
+                setCount(count + 1)
+            }
+
+            function MainHead() {
+                return <h1>Counter App</h1>
+            }
+
+            function CountTracker() {
+                console.log(count);
+                return <div id="count-box"><span>{count}</span></div>;
+            }
+
+            function ButtonContainer() {
+                return <div class="btn-container"><MinusBtn /><ResetBtn /><PlusBtn /></div>
+            }
+
+            function MinusBtn() {
+                return <button id="minus" onClick={handleMinus}>-</button>
+            }
+
+            function ResetBtn() {
+                return <button id="reset" onClick={handleReset}>Reset</button>
+            }
+
+            function PlusBtn() {
+                return <button id="plus" onClick={handlePlus}>+</button>
+            }
+
+
+            return <div id="counter-app"><MainHead /><CountTracker /><ButtonContainer /></div>
+        }
+
+
+
+        ReactDOM.render(<GameBox />, bodyEle);
+
+    </script>
+</body>
+
+</html>

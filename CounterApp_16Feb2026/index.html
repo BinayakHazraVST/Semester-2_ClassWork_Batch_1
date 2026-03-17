@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #count-box{
+            height:300px;
+            width:350px;
+        }
+
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            height:100vh;
+            width:100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }   
+
+        #counter-app{
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px pink;
+            padding:10px;
+        }
+
+        #count-box{
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color:blue;
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+
+        button{
+            border:2px solid black;
+            height:25px;
+            width:60px;
+            background-color: white;
+            font-size: 1rem;
+            padding:3px;
+            font-weight: bold;
+            border-radius: 10px;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div id="counter-app">
+        <h1>Counter App</h1>
+        <div id="count-box"><span id="count">0</span></div>
+        <div>
+            <button id="minus">-</button>
+            <button id="reset">Reset</button>
+            <button id="plus">+</button>
+        </div>
+    </div>
+    <script>
+        let countNote=document.querySelector("#count");
+        let minusBtn=document.querySelector("#minus");
+        let plusBtn=document.querySelector("#plus");
+        let resetBtn=document.querySelector("#reset");
+
+        let count=0;
+        minusBtn.addEventListener("click", ()=>{
+            count--;
+            if(count<0){
+                count=0;
+            }
+
+            countNote.textContent=count;
+        })
+
+        plus.addEventListener("click",()=>{
+            count++;
+            countNote.textContent=count;
+        })
+
+        resetBtn.addEventListener("click", ()=>{
+            count=0;
+            countNote.textContent=0;
+        })
+    </script>
+</body>
+</html>
